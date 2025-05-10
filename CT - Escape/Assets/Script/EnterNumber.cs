@@ -16,8 +16,6 @@ public class EnterNumber : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         main.text = "";
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         Number = 0;
         Digit = 0;
         CanvasColor1 = GameObject.FindGameObjectsWithTag("Canvas1");
@@ -41,6 +39,8 @@ public class EnterNumber : MonoBehaviour {
     public void Solved() {
         Destroy(door);
         CanvasHide();
+        Digit = 0;
+        main.text = "";a
     }
     public void One() {
         if (Number == 0) {

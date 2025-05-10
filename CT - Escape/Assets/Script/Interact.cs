@@ -273,7 +273,7 @@ public class Interact : MonoBehaviour
             text.text = "E to enter code";
         }
 
-        if (other.name.Contains("ock") && Completed1 == 0) {
+        if (other.name.Contains("ock") && Completed1 == 0 && heldItemName.Contains("e")) {
             Panel.SetActive(true);
             Text.SetActive(true);
             text.text = "E to enter key";
