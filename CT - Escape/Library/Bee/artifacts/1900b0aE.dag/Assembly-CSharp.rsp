@@ -363,7 +363,6 @@
 "Assets/Script/LevelSelect.cs"
 "Assets/Script/MouseMovement.cs"
 "Assets/Script/MovementCharcter.cs"
-"Assets/Script/MovementCharcter1.cs"
 "Assets/Script/Story.cs"
 -langversion:9.0
 

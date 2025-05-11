@@ -77,6 +77,8 @@ public class Interact : MonoBehaviour
         {
             Door = GameObject.Find("Door1");
             Destroy(Door);
+            Door = GameObject.Find("Lock1");
+            Destroy(Door);
             Completed1 = 1;
         }
 
@@ -84,20 +86,29 @@ public class Interact : MonoBehaviour
         {
             Door = GameObject.Find("Door2");
             Destroy(Door);
+            Door = GameObject.Find("Lock2");
+            Destroy(Door);
         }
 
         if (EnterKeys == 7) {
             Door = GameObject.Find("Door3");
             Destroy(Door);
+            Door = GameObject.Find("Lock3");
+            Destroy(Door);
         }
 
-        if (triggerName == "Code" || triggerName == "PropCodeMain") {
+        if (triggerName == "Code" || triggerName == "PropCodeMain" || End == 1) {
 
         } else {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             open = 0;
             CanvasHide();
+        }
+
+        if(End == 1)
+        {
+            Invoke("Finish", 25);
         }
 
 
@@ -202,6 +213,8 @@ public class Interact : MonoBehaviour
                 RemoveHeldItem();
                 EnterKeys += 1;
                 Red2.SetActive(true);
+                Text.SetActive(false);
+                Panel.SetActive(false);
 
             }
             if (triggerName == "Lock2" && heldItemName == "Blue2")
@@ -209,14 +222,16 @@ public class Interact : MonoBehaviour
                 RemoveHeldItem();
                 EnterKeys += 1;
                 Blue2.SetActive(true);
-
+                Text.SetActive(false);
+                Panel.SetActive(false);
             }
             if (triggerName == "Lock2" && heldItemName == "Green2")
             {
                 RemoveHeldItem();
                 EnterKeys += 1;
                 Green2.SetActive(true);
-
+                Text.SetActive(false);
+                Panel.SetActive(false);
             }
 
 
@@ -226,19 +241,24 @@ public class Interact : MonoBehaviour
                 RemoveHeldItem();
                 EnterKeys += 1;
                 Red3.SetActive(true);
+                Text.SetActive(false);
+                Panel.SetActive(false);
 
             }
             if (triggerName == "Lock3" && heldItemName == "Blue3") {
                 RemoveHeldItem();
                 EnterKeys += 1;
                 Blue3.SetActive(true);
+                Text.SetActive(false);
+                Panel.SetActive(false);
 
             }
             if (triggerName == "Lock3" && heldItemName == "Green3") {
                 RemoveHeldItem();
                 EnterKeys += 1;
                 Green3.SetActive(true);
-
+                Text.SetActive(false);
+                Panel.SetActive(false);
             }
         }
 
@@ -251,10 +271,11 @@ public class Interact : MonoBehaviour
     private void PickUpItem(GameObject itemPrefab, string itemName)
     {
         heldItem = Instantiate(itemPrefab, transform, false);
-        heldItem.transform.localPosition = new Vector3(.4f, .5f, 2f);
+        heldItem.transform.localPosition = new Vector3(.4f, .5f, 1.5f);
         heldItemName = itemName;
         held = 1;
-        text.text = " ";
+        text.text = "";
+        Text.SetActive(false);
         Panel.SetActive(false);
     }
 
@@ -263,6 +284,8 @@ public class Interact : MonoBehaviour
         Destroy(heldItem);
         heldItemName = "";
         held = 0;
+        Text.SetActive(false);
+        Panel.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -273,13 +296,13 @@ public class Interact : MonoBehaviour
             text.text = "E to enter code";
         }
 
-        if (other.name.Contains("ock") && Completed1 == 0 && heldItemName.Contains("e")) {
+        if (other.name.Contains("ock") && Completed1 == 0 && held == 1) {
             Panel.SetActive(true);
             Text.SetActive(true);
             text.text = "E to enter key";
         }
 
-        if (other.name.Contains("ock") && Completed2 == 0) {
+        if (other.name.Contains("ock") && Completed2 == 0 && held == 1) {
             Panel.SetActive(true);
             Text.SetActive(true);
             text.text = "E to enter key";
@@ -303,8 +326,15 @@ public class Interact : MonoBehaviour
         triggerName = "";
         Panel.SetActive(false);
         Text.SetActive(false);
-        text.text = " ";
+        text.text = "";
 
+    }
+
+
+    private void Finish()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void CanvasHide() {

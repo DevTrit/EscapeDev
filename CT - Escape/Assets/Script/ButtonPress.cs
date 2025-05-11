@@ -89,13 +89,12 @@ public class ButtonPress : MonoBehaviour
     }
     public void Check() {
         if (Correct < 3) {
-            Invoke("Incorrect", 1);
-            Invoke("Blank", 2);
+            Invoke("Incorrect", .75f);
+            Invoke("Blank", 1.5f);
         }
         if(Count == 3 && Correct == 3) {
-            Invoke("Solved", 1f);
-            Invoke("Blank", 2f);
-            Invoke("Hide", 2.5f);
+            Invoke("Solved", .75f);
+            Invoke("Hide", 1.5f);
         }
     }
 
@@ -140,6 +139,15 @@ public class ButtonPress : MonoBehaviour
     }
 
     public void Hide() {
+        G1.SetActive(false);
+        G2.SetActive(false);
+        G3.SetActive(false);
+        B1.SetActive(false);
+        B2.SetActive(false);
+        B3.SetActive(false);
+        R1.SetActive(false);
+        R2.SetActive(false);
+        R3.SetActive(false);
         CanvasHide();
     }
 

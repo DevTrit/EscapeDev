@@ -14,11 +14,12 @@ public class Ending : MonoBehaviour
     public Text textMeshPro5;
     public Text textMeshPro6;
     public Text textMeshPro7;
-    public float typingSpeed = 0.1f;
+    public float typingSpeed = 0.075f;
     public GameObject End;
     public GameObject End2;
     public GameObject End3;
     public GameObject End4;
+    public GameObject End5;
 
     private string fullText;
 
@@ -83,13 +84,13 @@ public class Ending : MonoBehaviour
     public void Wait4()
     {
         Number = 1;
-        typingSpeed = .15f;
+        typingSpeed = .125f;
         Creator.SetActive(true);
         Final.SetActive(false);
         fullText = textMeshPro5.text; // Store the full text
         textMeshPro5.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Wait5", 4f);
+        Invoke("Wait5", 4.5f);
     }
 
     public void Wait5()
@@ -97,7 +98,7 @@ public class Ending : MonoBehaviour
         fullText = textMeshPro6.text;
         textMeshPro5.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Wait6", 4f);
+        Invoke("Wait6", 4.5f);
     }
 
     public void Wait6()
@@ -105,7 +106,7 @@ public class Ending : MonoBehaviour
         fullText = textMeshPro7.text;
         textMeshPro5.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Clear", 4f);
+        Invoke("Clear", 4.5f);
     }
 
 
@@ -122,6 +123,8 @@ public class Ending : MonoBehaviour
         End2.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Final.SetActive(false);
+        Creator.SetActive(false);
         Invoke("SHOW", 1.5f);
     }
 
@@ -129,6 +132,7 @@ public class Ending : MonoBehaviour
     {
         End4.SetActive(true);
         End3.SetActive(true);
+        End5.SetActive(true);
         Invoke("HIDE", Random.Range(.1f, .5f));
     }
 
@@ -141,5 +145,10 @@ public class Ending : MonoBehaviour
     public void Return()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(3);
     }
 }

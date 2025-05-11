@@ -40,7 +40,7 @@ public class EnterNumber : MonoBehaviour {
         Destroy(door);
         CanvasHide();
         Digit = 0;
-        main.text = "";a
+        main.text = "";
     }
     public void One() {
         if (Number == 0) {

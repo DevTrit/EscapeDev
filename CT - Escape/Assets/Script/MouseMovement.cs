@@ -5,14 +5,14 @@ using UnityEngine;
 public class MouseMovement : MonoBehaviour
 {
 
-    public float mouseSensitivity = 500f;
+    public float mouseSensitivity;
 
     float xRotation = 0f;
     float yRotation = 0f;
 
-    float topClamp = -90f;
+    float topClamp = -75f;
 
-    float bottomClamp = 90f;
+    float bottomClamp = 75f;
 
 
     // Start is called before the first frame update
