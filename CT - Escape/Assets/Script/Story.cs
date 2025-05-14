@@ -14,10 +14,11 @@ public class Story : MonoBehaviour {
     private string fullText;
 
     private void Start() {
+        typingSpeed = 0.075f;
         fullText = textMeshPro.text; // Store the full text
         textMeshPro.text = string.Empty; // Clear the text
         StartCoroutine(TypeText());// Start typing animation
-        Invoke("Wait", 5.5f);
+        Invoke("Wait", 5);
     }
 
     // Coroutine to simulate typing effect
@@ -32,28 +33,28 @@ public class Story : MonoBehaviour {
         fullText = textMeshPro2.text;
         textMeshPro.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Wait2", 4.5f);
+        Invoke("Wait2", 4.25f);
     }
 
     public void Wait2() {
         fullText = textMeshPro3.text;
         textMeshPro.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Wait3", 5);
+        Invoke("Wait3", 4.5f);
     }
 
     public void Wait3() {
         fullText = textMeshPro4.text;
         textMeshPro.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Wait4", 4.5f);
+        Invoke("Wait4", 4);
     }
 
     public void Wait4() {
         fullText = textMeshPro5.text;
         textMeshPro.text = string.Empty;
         StartCoroutine(TypeText());
-        Invoke("Clear", 4.5f);
+        Invoke("Clear", 4);
     }
 
     public void Clear() {

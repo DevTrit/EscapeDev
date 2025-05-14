@@ -364,6 +364,7 @@
 "Assets/Script/MouseMovement.cs"
 "Assets/Script/MovementCharcter.cs"
 "Assets/Script/Story.cs"
+"Assets/Script/Typing.cs"
 -langversion:9.0
 
 /deterministic

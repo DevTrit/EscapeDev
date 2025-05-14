@@ -9,6 +9,7 @@ TagManager:
   - Colors
   - FINAL
   - Canvas1
+  - HiddenPanels
   layers:
   - Default
   - TransparentFX

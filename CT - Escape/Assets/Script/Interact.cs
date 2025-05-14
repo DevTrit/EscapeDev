@@ -39,6 +39,7 @@ public class Interact : MonoBehaviour
     public string ColorCode;
     private GameObject[] CanvasColor;
     private GameObject[] CanvasColor1;
+    private GameObject[] HiddenPanels;
     public float Completed1;
     public float Completed2;
     public float held;
@@ -48,11 +49,14 @@ public class Interact : MonoBehaviour
 
     public float open;
 
+    public int OpenPanels;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        OpenPanels = 0;
         Completed1 = 0;
         Completed2 = 0;
         End = 0;
@@ -62,6 +66,7 @@ public class Interact : MonoBehaviour
         Panel.SetActive(false);
         CanvasColor = GameObject.FindGameObjectsWithTag("Canvas");
         CanvasColor1 = GameObject.FindGameObjectsWithTag("Canvas1");
+        HiddenPanels = GameObject.FindGameObjectsWithTag("HiddenPanels");
         CanvasHide();
     }
 
@@ -103,6 +108,7 @@ public class Interact : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             open = 0;
+            OpenPanels = 0;
             CanvasHide();
         }
 
@@ -136,6 +142,7 @@ public class Interact : MonoBehaviour
                 text.text = "";
                 Text.SetActive(false);
                 Panel.SetActive(false);
+                OpenPanels = 1;
             }
             //Room1
 
@@ -343,6 +350,10 @@ public class Interact : MonoBehaviour
             go.SetActive(false);
         }
         foreach (GameObject go in CanvasColor1) {
+            go.SetActive(false);
+        }
+        foreach (GameObject go in HiddenPanels)
+        {
             go.SetActive(false);
         }
         Cursor.lockState = CursorLockMode.Locked;

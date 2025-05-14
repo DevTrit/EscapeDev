@@ -27,8 +27,16 @@ public class Ending : MonoBehaviour
 
     public int Number;
 
+    public bool LastStory;
+
+    void Start()
+    {
+        LastStory = false;
+    }
+
     void OnTriggerEnter(Collider other)
     {
+        LastStory = true;
         Final.SetActive(true);
         fullText = textMeshPro.text; // Store the full text
         textMeshPro.text = string.Empty; // Clear the text

@@ -26,6 +26,8 @@ public class ButtonPress : MonoBehaviour
 
     private GameObject[] CanvasColor;
 
+    public GameObject Player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,13 @@ public class ButtonPress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        int OpenPanels = Player.GetComponent<Interact>().OpenPanels;
+        Debug.Log(OpenPanels);
+        if(OpenPanels == 0)
+        {
+            Count = 0;
+            Correct = 0;
+        }
     }
 
     public void Red() {
