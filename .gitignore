@@ -4,10 +4,10 @@
 #
 
 .utmp/
-/CT - Escape/[Ll]ibrary/
-/CT - Escape/[Tt]emp/
-/CT - Escape/[Oo]bj/
-/CT - Escape/[Bb]uild/
+CT*-*Escape/[Ll]ibrary/
+CT*-*Escape/[Tt]emp/
+CT*-*Escape/[Oo]bj/
+CT*-*Escape/[Bb]uild/
 **/[Bb]uilds/
 **/[Ll]ogs/
 **/[Uu]ser[Ss]ettings/

@@ -28,11 +28,14 @@ public class ButtonPress : MonoBehaviour
 
     public GameObject Player;
 
+    public bool ColorSolvedCorrect;
+
     // Start is called before the first frame update
     void Start()
     {
         Count = 0;
         Correct = 0;
+        ColorSolvedCorrect = false;
 
         CanvasColor = GameObject.FindGameObjectsWithTag("Canvas");
         //PropCode.SetActive(false);
@@ -42,7 +45,6 @@ public class ButtonPress : MonoBehaviour
     void Update()
     {
         int OpenPanels = Player.GetComponent<Interact>().OpenPanels;
-        Debug.Log(OpenPanels);
         if(OpenPanels == 0)
         {
             Count = 0;
@@ -156,6 +158,7 @@ public class ButtonPress : MonoBehaviour
         R1.SetActive(false);
         R2.SetActive(false);
         R3.SetActive(false);
+        ColorSolvedCorrect = true;
         CanvasHide();
     }
 
